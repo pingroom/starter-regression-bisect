@@ -1,0 +1,12 @@
+{
+  "name": "pingroom-starter-regression-bisect", "version": "1.0.0", "private": true,
+  "type": "module", "license": "MIT", "engines": { "node": ">=22" },
+  "description": "Find a regression boundary by asking a tester about prebuilt revisions.",
+  "scripts": {
+    "start": "node scripts/main.mjs run", "status": "node scripts/main.mjs status",
+    "report": "node scripts/main.mjs report", "recover": "node scripts/main.mjs recover",
+    "find-id": "node scripts/main.mjs find-id", "members": "node scripts/main.mjs members",
+    "connect": "node scripts/connect.mjs", "demo": "node scripts/demo.mjs", "test": "node --test"
+  },
+  "dependencies": { "@pingroom/sdk": "0.6.0" }
+}

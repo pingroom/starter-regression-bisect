@@ -1,0 +1,16 @@
+{
+  "id": "menu-regression-001",
+  "title": "Menu keyboard regression",
+  "symptom": "The menu closes when pressing the Down arrow.",
+  "testerId": "11111111-1111-4111-8111-111111111111",
+  "ttlSeconds": 3600,
+  "knownGood": "build-001",
+  "knownBad": "build-005",
+  "builds": [
+    { "revision": "build-001", "url": "https://example.com/builds/001" },
+    { "revision": "build-002", "url": "https://example.com/builds/002" },
+    { "revision": "build-003", "url": "https://example.com/builds/003" },
+    { "revision": "build-004", "url": "https://example.com/builds/004" },
+    { "revision": "build-005", "url": "https://example.com/builds/005" }
+  ]
+}
