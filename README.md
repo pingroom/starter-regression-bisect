@@ -54,6 +54,23 @@ and `PINGROOM_ROOM`; exported values override project-root `.env`, then saved
 credentials. Partial or blank pairs are rejected. CI requires the complete pair.
 Room-read and question-ask access are needed, as well as the room grant.
 
+`connect` refuses to replace an existing saved credential, including after a
+room preflight failure. Use `npm run members` to check the saved connection.
+The bisect journal binds that credential, so preserve both files when repairing
+a room grant. Approved credentials are saved before room preflight.
+
+Setup saves a private `.pingroom/pairing.json`. After an ordinary interruption,
+run `npm run connect` again to reuse the same pending robot and claim link.
+Concurrent setup is blocked by `.pingroom/.lock`; remove only that lock after
+confirming the previous setup process has stopped.
+
+An expired pairing or uncertain creation never starts another registration
+automatically. Keep the saved setup and resolve or revoke the old robot in
+Connected Agents before archiving `pairing.json` for an intentional new setup.
+There is an unavoidable gap between server creation and saving its response:
+a crash or lost response there leaves a saved creation intent that requires
+manual investigation. Setup does not promise exactly-once robot creation.
+
 ## Run one bounded step
 
 ```sh
